@@ -1,10 +1,23 @@
-
+import {useState, useEffect} from 'react'
 import './App.css';
+import StarshipCard from './components/StarshipCard';
 
 function App() {
+  const [starship, setStarship] = useState([])
+
+  const getStarship = async () => {
+    const response = await fetch (
+      `https://swapi.dev/api/starships/`
+    )
+    const data = await response.json()
+    setStarship(data.results)
+
+  }
+  useEffect(()=>{getStarship()}, [])
+  
   return (
     <div className="App">
-      
+      <StarshipCard starship={starship}/>
     </div>
   );
 }
