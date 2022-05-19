@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
-import './App.css';
+import './App.sass';
 import StarshipCard from './components/StarshipCard';
+import Nav from './components/Nav'
 
 function App() {
   const [starship, setStarship] = useState([])
@@ -17,6 +18,7 @@ function App() {
   
   return (
     <div className="App">
+      <Nav />
       <StarshipCard starship={starship}/>
     </div>
   );
